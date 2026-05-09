@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ERP ACME - Configuración</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="dashboard">
+        <aside class="sidebar">
+            <div class="logo">
+                <h2>ACME ERP</h2>
+                <p>Módulo Logístico</p>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="index.html">📦 Inventario</a></li>
+                    <li><a href="proveedores.html">👥 Proveedores</a></li>
+                    <li><a href="reportes.html">📊 Reportes</a></li>
+                    <li class="active"><a href="configuracion.html">⚙️ Configuración</a></li>
+                </ul>
+            </nav>
+        </aside>
+        
+        <main class="main-content">
+            <header class="topbar">
+                <h2>Configuración del Sistema</h2>
+                <div class="user-profile"><span>Admin Sistema</span></div>
+            </header>
+            <div class="content-wrapper">
+                <section class="card form-card">
+                    <h3>Preferencias Generales</h3>
+                    <form onsubmit="event.preventDefault(); alert('Configuración guardada (Simulación)');">
+                        <div class="form-grid">
+                            <div class="form-group">
+                                <label for="sucursal">Sucursal Principal</label>
+                                <input type="text" id="sucursal" value="Casa Matriz - Santiago" readonly>
+                            </div>
+                            <div class="form-group">
+                                <label for="moneda">Moneda por defecto</label>
+                                <input type="text" id="moneda" value="Peso Chileno (CLP)" readonly>
+                            </div>
+                        </div>
+                        <div class="form-group" style="margin-top: 15px;">
+                            <label><input type="checkbox" checked> Recibir alertas de stock bajo al correo del administrador</label>
+                        </div>
+                        <br>
+                        <button type="submit" class="btn-primary">Guardar Cambios</button>
+                    </form>
+                </section>
+            </div>
+        </main>
+    </div>
+</body>
+</html>

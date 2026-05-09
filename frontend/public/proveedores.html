@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ERP ACME - Proveedores</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="dashboard">
+        <aside class="sidebar">
+            <div class="logo">
+                <h2>ACME ERP</h2>
+                <p>Módulo Logístico</p>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="index.html">📦 Inventario</a></li>
+                    <li class="active"><a href="proveedores.html">👥 Proveedores</a></li>
+                    <li><a href="reportes.html">📊 Reportes</a></li>
+                    <li><a href="configuracion.html">⚙️ Configuración</a></li>
+                </ul>
+            </nav>
+        </aside>
+        
+        <main class="main-content">
+            <header class="topbar">
+                <h2>Gestión de Proveedores</h2>
+                <div class="user-profile"><span>Admin Sistema</span></div>
+            </header>
+            <div class="content-wrapper">
+                <section class="card table-card">
+                    <h3>Directorio de Proveedores Activos</h3>
+                    <div class="table-responsive">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>RUT</th>
+                                    <th>Razón Social</th>
+                                    <th>Contacto</th>
+                                    <th>Teléfono</th>
+                                    <th>Estado</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>76.123.456-7</td>
+                                    <td>Herramientas Makita Chile S.A.</td>
+                                    <td>ventas@makita.cl</td>
+                                    <td>+56 2 2123 4567</td>
+                                    <td><span class="badge badge-success">Activo</span></td>
+                                </tr>
+                                <tr>
+                                    <td>90.987.654-3</td>
+                                    <td>Importadora Ferretera Sur Ltda.</td>
+                                    <td>contacto@ferresur.cl</td>
+                                    <td>+56 9 8765 4321</td>
+                                    <td><span class="badge badge-warning">En revisión</span></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </section>
+            </div>
+        </main>
+    </div>
+</body>
+</html>
