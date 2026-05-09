@@ -1,0 +1,27 @@
+version: '3.8'
+
+services:
+  frontend:
+    build: ./frontend
+    container_name: frontend-erp
+    ports:
+      - "80:80"
+    networks:
+      - acme-net
+    depends_on:
+      - mariadb-server
+
+  mariadb-server:
+    image: mariadb:10.11
+    container_name: mariadb-server
+    environment:
+      MYSQL_ROOT_PASSWORD: acme_password
+      MYSQL_DATABASE: acme_erp
+    volumes:
+      - ./db/init.sql:/docker-entrypoint-initdb.d/init.sql
+    networks:
+      - acme-net
+
+networks:
+  acme-net:
+    driver: bridge
