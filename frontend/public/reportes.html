@@ -36,18 +36,19 @@
             </header>
             <div class="content-wrapper">
                 <div class="kpi-grid">
-                    <div class="kpi-card">
-                        <h4>Valor Total del Inventario</h4>
-                        <h2>$15.450.000</h2>
-                    </div>
-                    <div class="kpi-card">
-                        <h4>Productos con Stock Crítico</h4>
-                        <h2 style="color: var(--danger)">4</h2>
-                    </div>
-                    <div class="kpi-card">
-                        <h4>Proveedores Activos</h4>
-                        <h2>12</h2>
-                    </div>
+    <div class="kpi-card">
+        <h4>Valor Total del Inventario</h4>
+        <h2 id="kpi-valor">$0</h2>
+    </div>
+    <div class="kpi-card">
+        <h4>Productos con Stock Crítico</h4>
+        <h2 id="kpi-critico" style="color: var(--danger)">0</h2>
+    </div>
+    <div class="kpi-card">
+        <h4>Total de Productos</h4>
+        <h2 id="kpi-total">0</h2>
+    </div>
+</div>
                 </div>
                 <section class="card">
                     <h3>Resumen Mensual</h3>
@@ -56,5 +57,29 @@
             </div>
         </main>
     </div>
+    <script>
+    async function cargarKPIs() {
+        try {
+            const res = await fetch('/api/productos');
+            const productos = await res.json();
+            
+            const valorTotal = productos.reduce((suma, p) => suma + (p.precio * p.stock), 0);
+            const valorFormateado = new Intl.NumberFormat('es-CL', { 
+                style: 'currency', currency: 'CLP' 
+            }).format(valorTotal);
+
+            const stockCritico = productos.filter(p => p.stock < 10).length;
+
+            document.getElementById('kpi-valor').innerText = valorFormateado;
+            document.getElementById('kpi-critico').innerText = stockCritico;
+            document.getElementById('kpi-total').innerText = productos.length;
+
+        } catch (error) {
+            console.error('Error al cargar KPIs:', error);
+        }
+    }
+
+    cargarKPIs();
+</script>
 </body>
 </html>
